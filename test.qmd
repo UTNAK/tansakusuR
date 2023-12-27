@@ -1,10 +1,14 @@
-# tansakusuR
+---
+title: "test_code"
+format: html
+---
 
-A wrapper for SPARQL endpoints
 
 ```{r}
+endpoint_url <- "https://query.wikidata.org/sparql"
 
-query_string <-""
+
+query_string <-'
 SELECT ?spaceProbeLabel ?date ?picture
 WHERE
 {
@@ -17,8 +21,11 @@ WHERE
 }
 ORDER BY ?date
 LIMIT 10
-""
+'
 
+df <- send_query(endpoint_url, query_string)
 
+library(DT)
+datatable(df)
 
 ```
