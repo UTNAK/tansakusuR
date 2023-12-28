@@ -65,3 +65,5 @@ You can visualize the queried result as follows;
 library(DT)
 datatable(df)
 ```
+
+![Visualize as a table](man/figures/README-/wikitable.png)

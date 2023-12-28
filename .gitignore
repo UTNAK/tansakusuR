@@ -52,6 +52,9 @@ rsconnect/
 # gitignore
 .gitignore
 
+# mac 
+.DS_Store
+
 # Readme.rmd
 README.html
 README_files/
