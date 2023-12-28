@@ -4,7 +4,7 @@
 #' @param query_string a string of SPARQL codes
 #' @param format a string that specify return format, default="df"
 #'
-#' @return A json data of a query result
+#' @return A data frame or json data of a query result
 #' @export
 #'
 #' @examples

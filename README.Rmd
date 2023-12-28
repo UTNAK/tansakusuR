@@ -66,3 +66,22 @@ datatable(df)
 ```
 
 ![Visualize as a table](man/figures/README-/wikitable.png)
+
+## Usage#2: Using .sparql file
+
+```{r}
+library(tansakusuR)
+
+sparqlfile="./examplequery.sparql"
+endpoint_url <- "https://query.wikidata.org/sparql"
+df <- send_query_from_file(endpoint_url, sparqlfile)
+df
+```
+
+You can see the SPARQL code using `show_query()`.
+
+```{r}
+show_query(sparqlfile)
+```
+
+

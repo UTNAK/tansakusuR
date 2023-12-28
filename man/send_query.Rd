@@ -14,7 +14,7 @@ send_query(endpoint_url, query_string, format = "df")
 \item{format}{a string that specify return format, default="df"}
 }
 \value{
-A json data of a query result
+A data frame or json data of a query result
 }
 \description{
 Send a query string to a SPARQL endpoint
