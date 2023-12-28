@@ -3,8 +3,14 @@ title: "test_code"
 format: html
 ---
 
+```{r}
+library(devtools)
+install_github("UTNAK/tansakusuR")
+```
+
 
 ```{r}
+library(tansakusuR)
 endpoint_url <- "https://query.wikidata.org/sparql"
 
 

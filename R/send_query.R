@@ -38,9 +38,9 @@ send_query <- function(endpoint_url, query_string, format="df"){
     # Convert to Json
     resultJson <- jsonlite::fromJSON(content, simplifyVector = FALSE)
     # Convert to dataframe
-    resultDf <- purrr::map_dfr(jsondata$results$bindings, function(binding) {
+    resultDf <- purrr::map_dfr(resultJson$results$bindings, function(binding) {
       return(purrr::map_chr(binding, ~ .x$value))
-      }) |> dplyr::select(c(unlist(jsondata$head$vars)))
+      }) |> dplyr::select(c(unlist(resultJson$head$vars)))
     # return a result based on the format parameter
     if(format == "json"){
       result <- resultJson

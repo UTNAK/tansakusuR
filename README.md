@@ -3,6 +3,10 @@
 A wrapper for SPARQL endpoints
 
 ## Install
+```{r}
+library(devtools)
+install_github("UTNAK/tansakusuR")
+```
 
 
 ## Usage
