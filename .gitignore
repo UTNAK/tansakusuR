@@ -53,6 +53,5 @@ rsconnect/
 .gitignore
 
 # Readme.rmd
-README.Rmd
 README.html
 README_files/

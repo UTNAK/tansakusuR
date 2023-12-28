@@ -1,0 +1,66 @@
+---
+output: github_document
+always_allow_html: true
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# tansakusuR
+
+A wrapper for SPARQL endpoints
+
+## Installation
+
+You can install the development version of "tansakusuR" from [GitHub](https://github.com/UTNAK/tansakusuR) with:
+
+```{r, eval = FALSE}
+library(devtools)
+install_github("UTNAK/tansakusuR")
+```
+
+## Usage
+
+```{r}
+library(tansakusuR)
+endpoint_url <- "https://query.wikidata.org/sparql"
+
+
+query_string <-'
+SELECT ?spaceProbeLabel ?date ?picture
+WHERE
+{
+  ?spaceProbe wdt:P31 wd:Q26529;
+        wdt:P18 ?picture;
+        wdt:P619 ?date . #mandatory
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "fr,en" .
+  }
+}
+ORDER BY ?date
+LIMIT 10
+'
+
+df <- send_query(endpoint_url, query_string)
+```
+
+Here is the queried result
+
+```{r}
+df
+```
+
+You can visualize the queried result as follows;
+
+```{r, eval = FALSE}
+library(DT)
+datatable(df)
+```
