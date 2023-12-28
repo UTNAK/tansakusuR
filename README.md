@@ -2,7 +2,8 @@
 
 A wrapper for SPARQL endpoints
 
-## Install
+## Installation
+
 ```{r}
 library(devtools)
 install_github("UTNAK/tansakusuR")
@@ -10,6 +11,13 @@ install_github("UTNAK/tansakusuR")
 
 
 ## Usage
+
+```{r}
+library(tansakusuR)
+```
+
+You submit SPARQL queries using the `send_query()` function.
+
 ```{r}
 endpoint_url <- "https://query.wikidata.org/sparql"
 

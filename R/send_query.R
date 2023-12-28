@@ -33,21 +33,20 @@ send_query <- function(endpoint_url, query_string, format="df"){
   
   # extract results from http response
   content <- httr::content(httpResponse, as = "text", encoding = "UTF-8")
-  
+
+  # if the http response is ok, extract queried data from the response
   if(httpResponse$status_code == 200){
     # Convert to Json
     resultJson <- jsonlite::fromJSON(content, simplifyVector = FALSE)
-    # Convert to dataframe
-    resultDf <- purrr::map_dfr(resultJson$results$bindings, function(binding) {
-      return(purrr::map_chr(binding, ~ .x$value))
-      }) |> dplyr::select(c(unlist(resultJson$head$vars)))
     # return a result based on the format parameter
     if(format == "json"){
       result <- resultJson
     }else{
-      result <- resultDf
+      # Convert to dataframe
+      result <- purrr::map_dfr(resultJson$results$bindings, function(binding) {
+        return(purrr::map_chr(binding, ~ .x$value))
+      }) |> dplyr::select(c(unlist(resultJson$head$vars)))
     }
-    
   }else{
     # return error strings
     result <- content
