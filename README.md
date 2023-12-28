@@ -2,9 +2,15 @@
 
 A wrapper for SPARQL endpoints
 
-```{r}
+## Install
 
-query_string <-""
+
+## Usage
+```{r}
+endpoint_url <- "https://query.wikidata.org/sparql"
+
+
+query_string <-'
 SELECT ?spaceProbeLabel ?date ?picture
 WHERE
 {
@@ -17,8 +23,11 @@ WHERE
 }
 ORDER BY ?date
 LIMIT 10
-""
+'
 
+df <- send_query(endpoint_url, query_string)
 
+library(DT)
+datatable(df)
 
 ```
