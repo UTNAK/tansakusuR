@@ -48,3 +48,11 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 .Rproj.user
+
+# gitignore
+.gitignore
+
+# Readme.rmd
+README.Rmd
+README.html
+README_files/

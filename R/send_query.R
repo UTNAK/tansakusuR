@@ -45,7 +45,7 @@ send_query <- function(endpoint_url, query_string, format="df"){
       # Convert to dataframe
       result <- purrr::map_dfr(resultJson$results$bindings, function(binding) {
         return(purrr::map_chr(binding, ~ .x$value))
-      }) |> dplyr::select(c(unlist(resultJson$head$vars)))
+      })# |> dplyr::select(c(unlist(resultJson$head$vars)))
     }
   }else{
     # return error strings
