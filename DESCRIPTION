@@ -1,6 +1,6 @@
 Package: tansakusuR
 Title: A Wrapper for SPARQL Endpoints
-Version: 0.0.0.9001
+Version: 0.0.0.9002
 Authors@R: 
     person(given  = "Yuta",
            family = "Nakajima",
